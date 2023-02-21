@@ -6,8 +6,7 @@ print.hglm <- function(hglm_out){
 }
 #' @export
 coef.hglm <- function(hglm_out){
-  # TODO: Return estimated coefficients
-  warning("coef.hglm not yet implemented.")
+  hglm_out$coefficients
 }
 #' @export
 vcov.hglm <- function(hglm_out){
