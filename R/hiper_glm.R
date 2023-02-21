@@ -1,5 +1,5 @@
 #' @export
-hiper_glm <- function(design,outcome,model='linear'){
+hiper_glm <- function(design,outcome,model='linear',option=list()){
   support_model <- c('linear','logit')
   if(!(model %in% support_model))
     stop(sprintf("Model %s not supported.",model))
