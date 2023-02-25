@@ -7,8 +7,7 @@ are_all_close <- function(v, w, abs_tol = 1e-6, rel_tol = 1e-6) {
 
 simulate_data <- function(
     n_obs, n_pred, model = "linear", intercept = NULL,
-    coef_true = NULL, design = NULL, seed = NULL, signal_to_noise = 0.1
-) {
+    coef_true = NULL, design = NULL, seed = NULL, signal_to_noise = 0.1) {
   if (!is.null(seed)) {
     set.seed(seed)
   }
@@ -32,12 +31,13 @@ simulate_data <- function(
   return(list(design = design, outcome = outcome, coef_true = coef_true))
 }
 
-approx_grad <- function(func, x, dx = .Machine$double.eps^(1/3), ...) {
+approx_grad <- function(func, x, dx = .Machine$double.eps^(1 / 3), ...) {
   n <- length(x)
   numerical_grad <- rep(0, n)
-  for(i in 1:n){
-    dif <- rep(0, n); dif[i] <- dx
-    numerical_grad[i] <- (func(x+dif, ...) - func(x-dif, ...))/2/dx
+  for (i in 1:n) {
+    dif <- rep(0, n)
+    dif[i] <- dx
+    numerical_grad[i] <- (func(x + dif, ...) - func(x - dif, ...)) / 2 / dx
   }
   return(numerical_grad)
 }
