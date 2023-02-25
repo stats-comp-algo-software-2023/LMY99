@@ -11,6 +11,6 @@ test_that("linalg and optim least-sq coincide", {
   )
   expect_true(are_all_close(
     coef(via_linalg_out), coef(via_bfgs_out),
-    abs_tol = 1e-2, rel_tol = 1e-2
+    abs_tol = 1e-5, rel_tol = 1e-5
   ))
 })
