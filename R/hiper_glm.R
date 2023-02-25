@@ -1,6 +1,6 @@
 #' @export
 hiper_glm <- function(design,outcome,model='linear',option=list()){
-  support_model <- c('linear','logit')
+  support_model <- c('linear')
   if(!(model %in% support_model))
     stop(sprintf("Model %s not supported.",model))
   hglm_out <- list()
@@ -14,9 +14,6 @@ hiper_glm <- function(design,outcome,model='linear',option=list()){
       hglm_out$coefficients <- lm_bfgs(design,outcome)
       hglm_out$mle_solver <- "BFGS"
     }
-  }
-  else{
-    warning(sprintf("hiper_glm for model %s not yet implemented",model))
   }
   return(hglm_out)
 }
