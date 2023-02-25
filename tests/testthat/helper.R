@@ -35,7 +35,6 @@ simulate_data <- function(
 approx_grad <- function(func, x, dx = .Machine$double.eps^(1/3), ...) {
   n <- length(x)
   numerical_grad <- rep(0, n)
-  # Fill in
   for(i in 1:n){
     dif <- rep(0, n); dif[i] <- dx
     numerical_grad[i] <- (func(x+dif, ...) - func(x-dif, ...))/2/dx
